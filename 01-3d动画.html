@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div:nth-of-type(1):hover{
+            /* 3D的平移 */
+            /* transform: translateZ(100px); */
+            /* 3D的旋转 */
+           /*  transform:rotateX(40deg);
+            transform: rotateY(50deg);
+            transform: rotateZ(50deg); */
+            /* transform: rotate3d(0,1,0,40deg); */
+            /* transform: scale3d(0.5); */
+        /* } */
+        body{
+            perspective: 1200px;/* 景深，配合着3D，z轴运动   指的就是在什么位置看物体,数值越小越近看的就大 注意放的位置放在你站的地方这个属性 页面中我们指的就是body*/
+        }
+        section{
+            transform: rotate3d(0,1,0,20deg);
+            transform-style:preserve-3d;/* 表示所有的子元素都3D效果中 */
+            /* animation: mymove 10s ease 0.5s infinite normal paused; */
+            animation: mymove 20s linear 0.5s infinite normal running;
+        }
+        section:hover{
+            animation-play-state:paused;
+        }
+        div{
+            font-size: 50px; 
+            line-height: 300px;
+            text-align: center;
+            color: black;
+            width: 300px;
+            height: 300px;
+            transition: 3s;
+            position:absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 100px auto;
+        }
+        div:nth-of-type(1){
+            transform: translateZ(150px);
+        }
+        div:nth-of-type(2){
+            transform: rotateY(-90deg) translateZ(150px) ;
+        }
+        div:nth-of-type(3){
+            transform:translateZ(-150px) rotateY(-180deg);
+        }
+        div:nth-of-type(4){
+            transform: rotateY(90deg) translateZ(150px);
+        }
+        div:nth-of-type(5){
+            transform:rotateX(90deg) translateZ(150px);
+        }
+        div:nth-of-type(6){
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+        @keyframes mymove{
+            0%{
+                transform:rotate3d(0,1,0,0deg)
+            }
+            5%{
+                transform:rotate3d(0,1,0,30deg)
+            }
+            15%{
+                transform:rotate3d(0,1,0,70deg)
+            }
+            25%{
+                transform:rotate3d(0,1,0,100deg)
+            }
+            50%{
+                transform:rotate3d(0,1,0,130deg)
+            }
+            75%{
+                transform:rotate3d(0,1,0,180deg)
+            }
+            85%{
+                transform:rotate3d(0,1,0,240deg)
+            }
+            100%{
+                transform:rotate3d(0,1,0,360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div style="opacity: .3; background-color: tomato;">不</div>
+        <div style="opacity: .3; background-color: red;">知</div>
+        <div style="opacity: .3; background-color: mistyrose;">名</div>
+        <div style="opacity: .3; background-color: yellow;">选</div>
+        <div style="opacity: .3; background-color: yellowgreen;">手</div>
+        <div style="opacity: .3; background-color:burlywood;">Au</div>
+    </section>
+</body>
+
+</html>
+<script>
+    document.onselectstart = function(e){
+        return false;
+    }
+ </script>
